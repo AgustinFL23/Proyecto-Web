@@ -1,8 +1,52 @@
 body{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    
     background-image:url(/MULTIMEDIA/loginBckgnd.jpeg);
     background-size: cover;
     background-position: top;
     background-repeat: no-repeat; /* Evita que las imágenes se repitan */
 
-    background-color: rgb(63, 37, 6);
+    background-color: rgb(196, 168, 134);
+}
+.login-container {
+    background-color: rgb(206, 184, 158);
+    border-radius: 10px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    padding: 20px;
+    text-align: center;
+}
+
+.login-container input[type="text"],
+.login-container input[type="password"] {
+    width: 100%;
+    padding: 10px;
+    margin: 10px 0;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    box-sizing: border-box;
+}
+
+.login-container input[type="submit"] {
+    width: 100%;
+    padding: 10px;
+    margin-top: 10px;
+    background-color: #612624;
+    color: #fff;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+.login-container .register-button {
+    background-color: #ccc;
+    color: #000;
+}
+
+.register-text{
+    margin-top: 10px;
+    color: #a7a7a7;
+
 }

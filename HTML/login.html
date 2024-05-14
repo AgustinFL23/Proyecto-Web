@@ -4,10 +4,18 @@
         <meta charset="UTF-8">
         <meta name="viewport" content="width=device-width, initial-scale=1">
         <link rel="stylesheet" href="/CSS/login.css">
-        <title>Inicio de sesion</title>
+        <title>Inicio de sesión</title>
     </head>
     <body>
-        <h1>Holi</h1>
-        <img src="/MULTIMEDIA/loginBckgnd.jpeg" alt="Fondo">
+        <div class="login-container">
+            <h3>Inicia sesión</h3>
+            <form action="#" method="post">
+                <input type="text" name="username" placeholder="Usuario">
+                <input type="password" name="password" placeholder="Contraseña">
+                <input type="submit" value="Iniciar sesión">
+            </form>
+            <p class="register-text">Si aun no tienes una cuenta, registrate</p>
+            <button class="register-button" onclick="location.href= '#'">Registrarse</button>
+        </div>
     </body>
 </html>
