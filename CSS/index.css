@@ -1,1 +1,46 @@
-body{}
+#head{
+	position: sticky;
+	top: 0px;
+	color: white;
+	font-size:2vw;
+	height: 8vh;
+	width: 100vw;
+}
+li{
+	color: white;
+	display: inline;
+	float: left;
+	margin: auto;
+	padding-left: 0vw;
+	padding-right: 0vw;
+	border-width: 2px;
+	border-color: lightgray;
+	border-style: solid;
+	height: 8vh;
+	background-image: url(../MULTIMEDIA/fondoli.png);
+	background-size: cover;
+	width: 19.5vw;
+
+}
+a{
+	text-decoration: none;
+	color: white;
+}
+a:visited{
+color: white;
+}
+body{
+	background-color: rgb(255 207 207);
+	color: white;
+	margin: 1px;
+	margin-top: -5vh;
+}
+#Fondo{
+	background-color: darkred;
+	width: 99vw;
+	height: 100vh;
+	margin-top: .8vw;
+}
+ul{
+	padding: 0;
+}
