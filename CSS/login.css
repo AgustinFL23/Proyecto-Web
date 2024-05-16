@@ -11,7 +11,7 @@ body{
 
 }
 h2 {
-    font-family: "Josefin Slab", serif;
+    font-family: "Playfair Display", serif;
     font-size: xx-large;
     color: darkred;
 }
@@ -25,7 +25,8 @@ h2 {
 
 .login-container input[type="text"],
 .login-container input[type="password"] {
-    font-family: "Josefin Slab", serif;
+    font-family: "Playfair Display", serif;
+    font-size: medium;
     width: 100%;
     padding: 10px;
     margin: 10px 0;
@@ -35,7 +36,8 @@ h2 {
 }
 
 .login-container input[type="submit"] {
-    font-family:  "Josefin Slab", serif;
+    font-family:  "Playfair Display", serif;
+    font-size: large;
     width: 100%;
     padding: 10px;
     margin-top: 10px;
@@ -47,11 +49,12 @@ h2 {
 }
 
 .login-container .register-button {
-    font-family: 'Josefin Slab', serif;
+    font-family: 'Playfair Display', serif;
+    font-size: large;
     width: 100%;
     padding: 10px;
     margin-top: 10px;
-    background-color: #ccc;
+    background-color: #7e4040;
     color: #fff;
     border: none;
     border-radius: 5px;
@@ -59,8 +62,8 @@ h2 {
 }
 
 .register-text{
-    font-family: 'Josefin Slab', serif;
+    font-family: 'Playfair Display', serif;
     margin-top: 10px;
-    color: #a7a7a7;
+    color: #7e4040;
 
 }
