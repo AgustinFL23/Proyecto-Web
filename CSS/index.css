@@ -44,3 +44,7 @@ body{
 ul{
 	padding: 0;
 }
+
+#cmbDesayuno, #cmbComida, #cmbCena {
+	display: none;
+}
