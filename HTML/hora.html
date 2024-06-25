@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Seleccionar Comida</title>
+</head>
+<body>
+    <h2>Selecciona una hora</h2>
+    <form id="timeForm">
+        <label for="appt-time">Elige una hora:</label>
+        <input type="time" id="appt-time" name="appt-time" required>
+        <button type="button" onclick="updateCombobox()">Obtener Opciones</button>
+    </form>
+
+    <h3>Opciones de comida</h3>
+    <select id="meal-options">
+        <!-- Las opciones se llenarán aquí -->
+    </select>
+
+    <script>
+        function updateCombobox() {
+            // Obtener el elemento input de tipo time
+            var timeInput = document.getElementById("appt-time");
+
+            // Obtener el valor del input de tipo time
+            var timeValue = timeInput.value;
+
+            // Verificar si se obtuvo un valor
+            if (!timeValue) {
+                console.log("No se seleccionó ninguna hora.");
+                alert("Por favor, selecciona una hora.");
+                return;
+            }
+
+            // Separar las horas y minutos
+            var [hours, minutes] = timeValue.split(":").map(Number);
+
+            // Determinar el tipo de comida
+            var mealOptions = [];
+            if (hours < 12) {
+                mealOptions = ["Café", "Tostadas", "Huevos"];
+            } else if (hours < 18) {
+                mealOptions = ["Ensalada", "Sándwich", "Sopa"];
+            } else {
+                mealOptions = ["Pasta", "Pizza", "Enchiladas"];
+            }
+
+            // Obtener el combobox de opciones de comida
+            var mealSelect = document.getElementById("meal-options");
+
+            // Limpiar las opciones actuales
+            mealSelect.innerHTML = "";
+
+            // Añadir las nuevas opciones
+            mealOptions.forEach(function(option) {
+                var newOption = document.createElement("option");
+                newOption.value = option;
+                newOption.text = option;
+                mealSelect.appendChild(newOption);
+            });
+        }
+    </script>
+</body>
+</html>

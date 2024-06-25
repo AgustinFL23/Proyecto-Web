@@ -28,29 +28,70 @@
 </head>
 <body>
 	<div id="Fondo">
-		<div id="Formulario">
+		<form action="index.php" method="POST">
 			<label for="tipo">Tipo de<br> evento</label>
-			<select name="evento" id="tipo">
-				<option value="0">Graduación</option>
-				<option value="1">Boda</option>
-				<option value="2">Bautizo</option>
-				<option value="3">XV Años</option>
-				<option value="4">Reunión Familiar</option>
-				<option value="5">Reunión De Negocios</option>
-				<option value="6">OTROS</option>
+			<select name="evento" id="evento">
+				<option>Graduación</option>
+				<option>Boda</option>
+				<option>Bautizo</option>
+				<option>XV Años</option>
+				<option>Reunión Familiar</option>
+				<option>Reunión De Negocios</option>
+				<option>Otros</option>
 			</select>
 			<label for="calendario">Fecha</label>
-			<input type="date" name="Fecha" id="calendario">
-			<label for="Hora">Hora</label>
-			<input type="time" id="horaSelect" name="Reloj" required>
+			<input type="date" name="calendario" id="calendario" required>
+			<label for="horaSelect">Hora</label>
+			<input type="time" id="horaSelect" name="horaSelect" required>
+			<button type="button" onclick="updateCombobox()">Ver Menus</button>
+			<select id="meal-options" name="meal-option">
+				<!-- Las opciones se llenarán aquí -->
+			</select>
 			<label for="calendario">Fecha</label>
 			<select name="eventos" id="establecidos">
 				<option>Sin registro</option>
 			</select>	
 			<br>
 			<button>añadir invitado</button>
+			<button onclick="location.href= '#'">Reservar fecha</button>
+		</form>
 			
-		</div>
+			<script>
+				function updateCombobox() {
+			
+					let timeValue = (document.getElementById("horaSelect")).value;
+
+					// Verificar si se obtuvo un valor
+					if (!timeValue) {
+						console.log("No se seleccionó ninguna hora.");
+						alert("Por favor, selecciona una hora.");
+						return;
+					}
+
+					let [hours, minutes] = timeValue.split(":").map(Number);
+
+					let MenuOpc = [];
+					if (hours < 12) {
+						MenuOpc = ["Desayuno continental", "Desayuno mexicano", "Desayuno mediterráneo"];
+					} else if (hours < 18) {
+						MenuOpc = ["Tartar de atún con aguacate", "Pollo con verduras al horno", "Portobellos Rellenos"];
+					} else {
+						MenuOpc = ["Pasta Carbonara", "Salmón con esparragos", "Tacos de carne asada con guacamole"];
+					}
+					let mealSelect = document.getElementById("meal-options");
+
+					// Limpiar las opciones actuales
+					mealSelect.innerHTML = "";
+
+					// Añadir las nuevas opciones
+					MenuOpc.forEach(function(option) {
+						var newOption = document.createElement("option");
+						newOption.value = option;
+						newOption.text = option;
+						mealSelect.appendChild(newOption);
+					});
+				}
+			</script>
 		<div>
 			<div id="imagenes">
 				<p>Arrastra los elementos </p>
@@ -62,8 +103,8 @@
 			</div>
 			<div id="Espacio">
 			</div>
-		</div>
 	</div>
+	
 	
 </body>
 </html>

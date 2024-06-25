@@ -1,4 +1,5 @@
 <?php
+session_start();
 // Configuración de la conexión a la base de datos
 $servername = "localhost";
 $username = "root";
@@ -13,18 +14,15 @@ if ($conn->connect_error) {
     die("Conexión fallida: " . $conn->connect_error);
 }
 
-// Iniciar sesión
-session_start();
-
 // Procesar formulario de inicio de sesión
 if ($_SERVER["REQUEST_METHOD"] == "POST") {
-    $username = $_POST['username'];
+    $usernameS = $_POST['username'];
     $password = $_POST['password'];
 
     // Consulta SQL para verificar usuario y contraseña
-    $sql = "SELECT * FROM usuarios WHERE email = ?";
+    $sql = "SELECT id_Usuario, password FROM usuarios WHERE email = ?";
     $stmt = $conn->prepare($sql);
-    $stmt->bind_param("s", $username);
+    $stmt->bind_param("s", $usernameS);
     $stmt->execute();
     $result = $stmt->get_result();
 
@@ -35,8 +33,12 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
         // Verificar contraseña usando password_verify()
         if (password_verify($password, $stored_password)) {
             // Contraseña válida, iniciar sesión
-            $_SESSION['username'] = $username;
-            header("Location: ../HTML/index.html"); // Redirigir a la página de bienvenida
+            $_SESSION['id_Usuario'] = $id_usuario;
+            $_SESSION['username'] = $usernameS;
+            var_dump($_SESSION);
+            header("Location: ../HTML/index.html");
+            
+             // Verifica qué hay en $_SESSION // Redirigir a la página de bienvenida
             exit();
         } else {
             // Contraseña incorrecta
