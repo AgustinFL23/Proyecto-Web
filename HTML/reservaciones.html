@@ -4,33 +4,109 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Eventos del Usuario</title>
+    <link rel="stylesheet" href="../CSS/reservaciones.css">
+    <link rel="stylesheet" href="../CSS/qsomos.css">
     <link rel="stylesheet" href="../CSS/styles.css">
 </head>
 <body>
-    <div id="head">
-        <nav class="nav">
-            <ul id="menu">
-                <li>
-                    <a href="index.html">Inicio</a>
-                </li>
-                <li>
-                    <a href="quienessomos.html">QUIENES SOMOS </a>
-                </li>
-                <li>
-                    <a href="menus.html">NUESTRO MENU </a>
-                </li>
-                <li>
-                    <a href="reservaciones.html">RESERVACIONES </a>
-                </li>
-                <li>
-                    <a href="">CONTACTOS </a>
-                </li>
+    <header class="header">
+        <div class="menu container">
+            <a href="#" class="logo"></a>
+            <input type="checkbox" id="menu"/>
+            <label for="menu">
+                <img src="../MULTIMEDIA/menu.png" class="menu-icono" alt="">
+            </label>
+          <nav class="navbar">
+            <ul>
+                <li><a href="index.html">Inicio</a></li>
+                <li><a href="quienessomos.html">Conocenos</a></li>
+                <li><a href="menus.html">Nuestro Menu</a></li>
+                <li><a href="reservaciones.html">Reservaciones</a></li>
+                <li><a href="#footer">Contacto</a></li>
             </ul>
-        </nav>
-</div>
+          </nav>
+        </div>
+        <div class="header-content container">
+               <h1>Midnights Salon</h1>
+               <p>Vive el mejor evento en nuestro salón de fiestas</p>
+        </div>
+    </header>
 
     <main class="content">
-        <h1>Eventos del Usuario</h1>
+        <section>
+            
+            <form action="index.php" method="POST">
+                <h2>Hacer una reserva</h2>
+                <label for="tipo">Tipo de evento</label>
+                <select name="evento" id="evento">
+                    <option>Graduación</option>
+                    <option>Boda</option>
+                    <option>Bautizo</option>
+                    <option>XV Años</option>
+                    <option>Reunión Familiar</option>
+                    <option>Reunión De Negocios</option>
+                    <option>Otros</option>
+                </select>
+                <label for="calendario">Fecha</label>
+                <input type="date" name="calendario" id="calendario" required>
+                <label for="horaSelect">Hora</label>
+                <input type="time" id="horaSelect" name="horaSelect" required>
+                <button type="button" onclick="updateCombobox()">Ver Menus</button>
+                <select id="meal-options" name="meal-option">
+                </select>
+                <h2>Elige tu organizacion</h2>
+                <div id="contenedor">
+                    <div id="imagenes">
+                        <img class="Arrastrable" src="../MULTIMEDIA/Mesas.png" draggable="true">
+                        <img class="Arrastrable" src="../MULTIMEDIA/Meseros.png" draggable="true">
+                        <img class="Arrastrable" src="../MULTIMEDIA/Grupo.png" draggable="true">
+                        <img class="Arrastrable" src="../MULTIMEDIA/Pista.png" draggable="true">
+                        <img class="Arrastrable" src="../MULTIMEDIA/Bocina.png" draggable="true">
+                    </div>
+                    <div id="Espacio" ondrop="drop(event)" ondragover="allowDrop(event)">
+                        Suelta aquí los elementos
+                    </div>
+                </div>
+                <script src="reservacionesScript.js"></script>
+            </div>
+                <button onclick="location.href= '#'">Reservar fecha</button>
+            </form>
+                <script>
+                    function updateCombobox() {
+                
+                        let timeValue = (document.getElementById("horaSelect")).value;
+    
+                        // Verificar si se obtuvo un valor
+                        if (!timeValue) {
+                            console.log("No se seleccionó ninguna hora.");
+                            alert("Por favor, selecciona una hora.");
+                            return;
+                        }
+    
+                        let [hours, minutes] = timeValue.split(":").map(Number);
+                        let MenuOpc = [];
+                        if (hours < 12) {
+                            MenuOpc = ["Desayuno continental", "Desayuno mexicano", "Desayuno mediterráneo"];
+                        } else if (hours < 18) {
+                            MenuOpc = ["Tartar de atún con aguacate", "Pollo con verduras al horno", "Portobellos Rellenos"];
+                        } else {
+                            MenuOpc = ["Pasta Carbonara", "Salmón con esparragos", "Tacos de carne asada con guacamole"];
+                        }
+                        let mealSelect = document.getElementById("meal-options");
+    
+                        mealSelect.innerHTML = "";
+                        MenuOpc.forEach(function(option) {
+                            var newOption = document.createElement("option");
+                            newOption.value = option;
+                            newOption.text = option;
+                            mealSelect.appendChild(newOption);
+                        });
+                    }
+                </script>
+            <div>
+        </section>
+        <section>
+            <h2>Eventos del Usuario</h2>
         <p id="message" style="display: none;"></p>
         <table id="eventsTable">
             <thead>
@@ -45,6 +121,8 @@
                 <!-- Los eventos se cargarán aquí mediante AJAX -->
             </tbody>
         </table>
+        </section>
+        
     </main>
 
     <script>
@@ -74,5 +152,39 @@
             loadEvents(); // Cargar eventos al cargar la página
         });
     </script>
+    <footer id="footer" class="footer">
+        <div class="footer-content container">
+        <div class="link">
+            <h3>Ubicación</h3>
+            <ul>
+                
+                <li><a href="#">ESCOM IPN, Unidad Profesional Adolfo López Mateos,
+                    Av. Juan de Dios Bátiz, Nueva Industrial Vallejo,
+                     Gustavo A. Madero, 07320 Ciudad de México, CDMX</a></li>
+                
+            </ul>
+            </div>
+            <div class="link">
+                <h3>Redes sociales </h3>
+            <ul>
+
+                <li><a href="#">Instagram</a></li>
+                <li><a href="#">Facebook</a></li>
+                
+            </ul>
+        </div>
+       
+        <div class="link">
+            <h3>Télefono</h3>
+            <ul>
+
+                <li><a href="#">11-22-33-44</a></li>
+                <li><a href="#"></a></li>
+                
+            </ul>
+        
+        </div>
+    </div>
+    </footer>
 </body>
 </html>

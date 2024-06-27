@@ -50,7 +50,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     $stmt_insert->bind_param("issss", $id, $selectedEvent, $selectedDate, $selectedTime, $selectedOption);
 
     if ($stmt_insert->execute()) {
-        echo "<script>alert('Evento guardado con éxito.'); window.location.href = '../HTML/index.html';</script>";
+        echo "<script>alert('Evento guardado con éxito.'); window.location.href = '../HTML/reservaciones.html';</script>";
     } else {
         echo "Error al guardar el evento: " . $stmt_insert->error;
     }

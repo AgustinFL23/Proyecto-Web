@@ -1,104 +1,75 @@
 <!DOCTYPE html>
 <html>
-<head>
-	<meta charset="utf-8">
-	<meta name="viewport" content="width=device-width, initial-scale=1">
-	<link rel="stylesheet" type="text/css" href="../CSS/index.css">
-	<title></title>
-</head>
-<body>
-	<div id="Fondo">
-	<div id="head">
-		<ul id="menu">
-			<li>
-				<a href="index.html">Inicio</a>
-			</li>
-			<li>
-				<a href="quienessomos.html">QUIENES SOMOS </a>
-			</li>
-			<li>
-				<a href="menus.html">NUESTRO MENU </a>
-			</li>
-			<li>
-				<a href="reservaciones.html">RESERVACIONES </a>
-			</li>
-			<li>
-				<a href="">CONTACTOS </a>
-			</li>
-		</ul>
-	</div>
-	
-		<form action="index.php" method="POST">
-			<p>
-				<br>
-			</p>
-			<label for="tipo">Tipo de<br> evento</label>
-			<select name="evento" id="evento">
-				<option>Graduación</option>
-				<option>Boda</option>
-				<option>Bautizo</option>
-				<option>XV Años</option>
-				<option>Reunión Familiar</option>
-				<option>Reunión De Negocios</option>
-				<option>Otros</option>
-			</select>
-			<label for="calendario">Fecha</label>
-			<input type="date" name="calendario" id="calendario" required>
-			<label for="horaSelect">Hora</label>
-			<input type="time" id="horaSelect" name="horaSelect" required>
-			<button type="button" onclick="updateCombobox()">Ver Menus</button>
-			<select id="meal-options" name="meal-option">
-			</select>
-			<button onclick="location.href= '#'">Reservar fecha</button>
-		</form>
-			<script>
-				function updateCombobox() {
-			
-					let timeValue = (document.getElementById("horaSelect")).value;
+    <head>
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width,initial-scale=1"">
+        <link rel="stylesheet" href="../CSS/qsomos.css">
+        <title>Midnights Salon</title>
+    </head>
+    <body>
+        <header class="header">
+            <div class="menu container">
+                <a href="#" class="logo"></a>
+                <input type="checkbox" id="menu"/>
+                <label for="menu">
+                    <img src="../MULTIMEDIA/menu.png" class="menu-icono" alt="">
+                </label>
+              <nav class="navbar">
+                <ul>
+                    <li><a href="index.html">Inicio</a></li>
+                    <li><a href="quienessomos.html">Conocenos</a></li>
+                    <li><a href="menus.html">Nuestro Menu</a></li>
+                    <li><a href="reservaciones.html">Reservaciones</a></li>
+                    <li><a href="#footer">Contacto</a></li>
+                </ul>
+              </nav>
+            </div>
+            <div class="header-content container">
+                   <h1>Midnights Salon</h1>
+                   <p>Vive el mejor evento en nuestro salón de fiestas</p>
+            </div>
+        </header>
+        <main>
+        <section class="salon">
+            <h2>Eventos destacados</h2>
+            <h2>Reserva con nosotros</h2>
+            <h2>Galeria</h2>
+            <p></p>
+        </section>
+    </main>
+    <footer id="footer" class="footer">
+        <div class="footer-content container">
+        <div class="link">
+            <h3>Ubicación</h3>
+            <ul>
+                
+                <li><a href="#">ESCOM IPN, Unidad Profesional Adolfo López Mateos,
+                    Av. Juan de Dios Bátiz, Nueva Industrial Vallejo,
+                     Gustavo A. Madero, 07320 Ciudad de México, CDMX</a></li>
+                
+            </ul>
+            </div>
+            <div class="link">
+                <h3>Redes sociales </h3>
+            <ul>
 
-					// Verificar si se obtuvo un valor
-					if (!timeValue) {
-						console.log("No se seleccionó ninguna hora.");
-						alert("Por favor, selecciona una hora.");
-						return;
-					}
+                <li><a href="#">Instagram</a></li>
+                <li><a href="#">Facebook</a></li>
+                
+            </ul>
+        </div>
+       
+        <div class="link">
+            <h3>Télefono</h3>
+            <ul>
 
-					let [hours, minutes] = timeValue.split(":").map(Number);
-					let MenuOpc = [];
-					if (hours < 12) {
-						MenuOpc = ["Desayuno continental", "Desayuno mexicano", "Desayuno mediterráneo"];
-					} else if (hours < 18) {
-						MenuOpc = ["Tartar de atún con aguacate", "Pollo con verduras al horno", "Portobellos Rellenos"];
-					} else {
-						MenuOpc = ["Pasta Carbonara", "Salmón con esparragos", "Tacos de carne asada con guacamole"];
-					}
-					let mealSelect = document.getElementById("meal-options");
-
-					mealSelect.innerHTML = "";
-					MenuOpc.forEach(function(option) {
-						var newOption = document.createElement("option");
-						newOption.value = option;
-						newOption.text = option;
-						mealSelect.appendChild(newOption);
-					});
-				}
-			</script>
-		
-		<div>
-			<div id="imagenes">
-				<p>Arrastra los elementos </p>
-				<img class="Arrastrable" url="../MULTIMEDIA/Mesas.png">
-				<img class="Arrastrable" url="../MULTIMEDIA/Meseros.png">
-				<img class="Arrastrable" url="../MULTIMEDIA/Grupo.png">
-				<img class="Arrastrable" url="../MULTIMEDIA/Pista.png">
-				<img class="Arrastrable" url="../MULTIMEDIA/Bocina.png">
-			</div>
-			<div id="Espacio">
-
-			</div>
-		</div>
-	</div>
-	
-	
-</body>
+                <li><a href="#">11-22-33-44</a></li>
+                <li><a href="#"></a></li>
+                
+            </ul>
+        
+        </div>
+    </div>
+    </footer>
+    </body>
 </html>

@@ -1,71 +1,71 @@
-/* Reseteo básico de estilos */
-* {
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700;800&display=swap');
+*{
     margin: 0;
     padding: 0;
     box-sizing: border-box;
-}
-
-#head{
-	position: sticky;
-	top: 0px;
-	color: white;
-	font-size:2vw;
-	height: 8vh;
-	width: 100vw;
-}
-li{
-	color: white;
-	display: inline;
-	float: left;
-	margin: auto;
-	padding-left: 0vw;
-	padding-right: 0vw;
-	border-width: 2px;
-	border-color: lightgray;
-	border-style: solid;
-	height: 8vh;
-	background-image: url(../MULTIMEDIA/fondoli.png);
-	background-size: cover;
-	width: 19.5vw;
+    text-decoration: none;
+    list-style: none;
 
 }
-a{
-	text-decoration: none;
-	color: white;
-}
-a:visited{
-color: white;
-}
-ul{
-	padding: 0;
-}
-
 body {
+    font-family: 'Poppins', sans-serif;
     background-color: darkred;
-    font-family: "Playfair Display", serif;
 }
+
+header {
+    background-color: #550000; /* Maroon */
+    padding: 10px 0;
+}
+
+header nav {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+header nav h1 {
+    font-size: 24px;
+    color: #FFFFFF;
+}
+
+header nav ul {
+    list-style-type: none;
+    display: flex;
+}
+
+header nav ul li {
+    margin-right: 40px;
+}
+
+header nav ul li a {
+    color: #FFFFFF;
+    text-decoration: none;
+    font-size: 18px;
+    transition: color 0.3s ease;
+}
+
+header nav ul li a:hover {
+    color: #FFD700; /* Golden Yellow on hover */
+}
+
 
 h1{
-    font-family: "Playfair Display", serif;
     text-align: center;
     font-size: xx-large;
     color: rgb(31, 0, 0);
 }
 h2 {
-    font-family: "Playfair Display", serif;
     text-align: center;
     font-size: xx-large;
     color: rgb(54, 0, 0);
 }
 
 h3 {
-    font-family: "Playfair Display", serif;
     text-align: center;
     font-size: x-large;
     color: rgb(54, 0, 0);
 }
 .main {
-    font-family: "Playfair Display", serif;
     text-align: center;
     font-size: large;
     color: rgb(226, 202, 165);
@@ -78,7 +78,9 @@ h3 {
     padding: 60px;
     box-shadow: 0px 4px 8px rgb(59, 4, 4);
 }
-
+.container a{
+    padding: 40px;
+}
 .espacio {
     text-align: center;
     font-size: large;

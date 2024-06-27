@@ -12,74 +12,13 @@ body {
     background-color: #f4f4f4;
     padding: 20px;
 }
-
-/* Estilos del header */
-.header {
-    position: sticky;
-	top: 0px;
-	color: white;
-	font-size:2vw;
-	height: 8vh;
-	width: 100vw;
-}
-
-.header .nav {
-    color: white;
-	display: inline;
-	float: left;
-	margin: auto;
-    justify-content: center;
-    height: 8vh;
-    border-width: 2px;
-	border-color: lightgray;
-	border-style: solid;
-    background-image: url(../MULTIMEDIA/fondoli.png);
-	background-size: cover;
-    width: a;
-}
-
-.header .nav__link {
-    color: #fff;
-    text-decoration: none;
-    padding: 10px 20px;
-    transition: background 0.3s ease;
-}
-
-.header .nav__link:hover {
-    background: #555;
-}
-li{
-	color: white;
-	display: inline;
-	float: left;
-	margin: auto;
-	padding-left: 0vw;
-	padding-right: 0vw;
-	border-width: 2px;
-	border-color: lightgray;
-	border-style: solid;
-	height: 8vh;
-	background-image: url(../MULTIMEDIA/fondoli.png);
-	background-size: cover;
-	width: 360px;
-
-}
-a{
-	text-decoration: none;
-	color: white;
-}
-a:visited{
-color: white;
 /* Estilos del contenido principal */
-}
-body {
-    background-color: darkred;
-    font-family: "Playfair Display", serif;
-}
+
+
 .content {
     max-width: 800px;
     margin: 20px auto;
-    background: #fff;
+    background: rgb(182, 140, 140);
     padding: 20px;
     box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
 }
@@ -90,6 +29,8 @@ form {
     grid-template-columns: 1fr;
     gap: 10px;
     margin-bottom: 20px;
+    background-color: rgb(196, 168, 168);
+    padding: 20px;
 }
 
 form label {
@@ -134,7 +75,7 @@ table th, table td {
 }
 
 table tbody tr:nth-child(even) {
-    background: #f4f4f4;
+    background: rgb(182, 140, 140);
 }
 
 /* Estilos de los mensajes */
