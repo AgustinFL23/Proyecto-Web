@@ -8,6 +8,8 @@ document.addEventListener('DOMContentLoaded', function() {
         let eventMenu = document.getElementById('meal-options').value;
 
         let xmlContent = '<?xml version="1.0" encoding="UTF-8"?>\n';
+        xmlContent += '<!DOCTYPE event SYSTEM "event.dtd">\n';
+
         xmlContent += '<event>\n';
         xmlContent += `    <type>${eventType}</type>\n`;
         xmlContent += `    <date>${eventDate}</date>\n`;
