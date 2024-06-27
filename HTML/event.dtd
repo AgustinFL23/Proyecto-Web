@@ -1,0 +1,8 @@
+<!ELEMENT event (type, date, time, menu, guests)>
+<!ELEMENT type (#PCDATA)>
+<!ELEMENT date (#PCDATA)>
+<!ELEMENT time (#PCDATA)>
+<!ELEMENT menu (#PCDATA)>
+<!ELEMENT guests (guest+)>
+<!ELEMENT guest (name)>
+<!ELEMENT name (#PCDATA)>
