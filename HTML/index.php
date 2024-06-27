@@ -50,14 +50,28 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     $stmt_insert->bind_param("issss", $id, $selectedEvent, $selectedDate, $selectedTime, $selectedOption);
 
     if ($stmt_insert->execute()) {
-        echo "Evento guardado con éxito.";
+        echo "<script>alert('Evento guardado con éxito.'); window.location.href = '../HTML/index.html';</script>";
     } else {
         echo "Error al guardar el evento: " . $stmt_insert->error;
     }
-
     // Cerrar statement de la consulta INSERT
     $stmt_insert->close();
     
+    $sql_select_Eventos = "SELECT tipo_Evento FROM eventos where id_Usuario =?";
+    $stmt_E = $conn->prepare($sql_select_Eventos);
+    $stmt_E->bind_param("i", $id);
+    $stmt_E->execute();
+    $stmt_E->bind_result($evento);
+
+    // Preparar opciones para el combobox
+    $options = array();
+    while ($stmt_E->fetch()) {
+        $options[] = $evento;
+    }
+
+    // Cerrar statement de la consulta SELECT
+    $stmt_E->close();
+
     // Cerrar conexión
     $conn->close();
 }

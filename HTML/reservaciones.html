@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Eventos del Usuario</title>
+    <link rel="stylesheet" href="../CSS/styles.css">
+</head>
+<body>
+    <div id="head">
+        <nav class="nav">
+            <ul id="menu">
+                <li>
+                    <a href="index.html">Inicio</a>
+                </li>
+                <li>
+                    <a href="quienessomos.html">QUIENES SOMOS </a>
+                </li>
+                <li>
+                    <a href="menus.html">NUESTRO MENU </a>
+                </li>
+                <li>
+                    <a href="reservaciones.html">RESERVACIONES </a>
+                </li>
+                <li>
+                    <a href="">CONTACTOS </a>
+                </li>
+            </ul>
+        </nav>
+</div>
+
+    <main class="content">
+        <h1>Eventos del Usuario</h1>
+        <p id="message" style="display: none;"></p>
+        <table id="eventsTable">
+            <thead>
+                <tr>
+                    <th>Tipo de Evento</th>
+                    <th>Fecha</th>
+                    <th>Hora</th>
+                    <th>Menú</th>
+                </tr>
+            </thead>
+            <tbody>
+                <!-- Los eventos se cargarán aquí mediante AJAX -->
+            </tbody>
+        </table>
+    </main>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', function () {
+            const eventsTable = document.getElementById('eventsTable').getElementsByTagName('tbody')[0];
+
+            function loadEvents() {
+                fetch('reservaciones.php')
+                    .then(response => response.json())
+                    .then(data => {
+                        if (data.status === 'success') {
+                            eventsTable.innerHTML = '';
+                            data.events.forEach(event => {
+                                const row = eventsTable.insertRow();
+                                row.insertCell(0).textContent = event.tipo_Evento;
+                                row.insertCell(1).textContent = event.fecha;
+                                row.insertCell(2).textContent = event.hora;
+                                row.insertCell(3).textContent = event.menu;
+                            });
+                        } else {
+                            eventsTable.innerHTML = '<tr><td colspan="4">No hay eventos disponibles.</td></tr>';
+                        }
+                    })
+                    .catch(error => console.error('Error:', error));
+            }
+
+            loadEvents(); // Cargar eventos al cargar la página
+        });
+    </script>
+</body>
+</html>

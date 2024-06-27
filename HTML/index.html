@@ -5,30 +5,33 @@
 	<meta name="viewport" content="width=device-width, initial-scale=1">
 	<link rel="stylesheet" type="text/css" href="../CSS/index.css">
 	<title></title>
-	<div>
+</head>
+<body>
+	<div id="Fondo">
+	<div id="head">
 		<ul id="menu">
 			<li>
 				<a href="index.html">Inicio</a>
 			</li>
 			<li>
-				<a href="quienessomos.html
-				">QUIENES SOMOS </a>
+				<a href="quienessomos.html">QUIENES SOMOS </a>
 			</li>
 			<li>
 				<a href="menus.html">NUESTRO MENU </a>
 			</li>
 			<li>
-				<a href="">RESERVACIONES </a>
+				<a href="reservaciones.html">RESERVACIONES </a>
 			</li>
 			<li>
 				<a href="">CONTACTOS </a>
 			</li>
 		</ul>
 	</div>
-</head>
-<body>
-	<div id="Fondo">
+	
 		<form action="index.php" method="POST">
+			<p>
+				<br>
+			</p>
 			<label for="tipo">Tipo de<br> evento</label>
 			<select name="evento" id="evento">
 				<option>Graduación</option>
@@ -45,17 +48,9 @@
 			<input type="time" id="horaSelect" name="horaSelect" required>
 			<button type="button" onclick="updateCombobox()">Ver Menus</button>
 			<select id="meal-options" name="meal-option">
-				<!-- Las opciones se llenarán aquí -->
 			</select>
-			<label for="calendario">Fecha</label>
-			<select name="eventos" id="establecidos">
-				<option>Sin registro</option>
-			</select>	
-			<br>
-			<button>añadir invitado</button>
 			<button onclick="location.href= '#'">Reservar fecha</button>
 		</form>
-			
 			<script>
 				function updateCombobox() {
 			
@@ -69,7 +64,6 @@
 					}
 
 					let [hours, minutes] = timeValue.split(":").map(Number);
-
 					let MenuOpc = [];
 					if (hours < 12) {
 						MenuOpc = ["Desayuno continental", "Desayuno mexicano", "Desayuno mediterráneo"];
@@ -80,10 +74,7 @@
 					}
 					let mealSelect = document.getElementById("meal-options");
 
-					// Limpiar las opciones actuales
 					mealSelect.innerHTML = "";
-
-					// Añadir las nuevas opciones
 					MenuOpc.forEach(function(option) {
 						var newOption = document.createElement("option");
 						newOption.value = option;
@@ -92,6 +83,7 @@
 					});
 				}
 			</script>
+		
 		<div>
 			<div id="imagenes">
 				<p>Arrastra los elementos </p>
@@ -102,7 +94,9 @@
 				<img class="Arrastrable" url="../MULTIMEDIA/Bocina.png">
 			</div>
 			<div id="Espacio">
+
 			</div>
+		</div>
 	</div>
 	
 	
